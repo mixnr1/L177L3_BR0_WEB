@@ -1,0 +1,143 @@
+.FizzBuzz {
+    background-color: green;
+}
+.Fizz {
+    background-color: yellow;
+}
+.Buzz {
+    background-color: blue;
+}
+.Number {
+    background-color: white;
+} 
+
+@media (min-width: 992px){
+    /* #mainid {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    #mainid div {
+        border: 0.5px solid gray;
+        text-align: center;
+    } */
+
+    .form-group {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(6, 2fr);
+        /* grid-row-gap: 50px; */
+        grid-column-gap: 50px;
+        /* grid-template-rows: auto;   */
+        grid-template-areas: 
+        "a b c d e f";
+    }
+    #tableval  {
+        grid-area: a;
+    } 
+    #hostval {
+        grid-area: b;
+    }
+    #userval {
+        grid-area: c;
+    }
+    #searchval {
+        grid-area: d;
+    }
+    #clearbut {
+        grid-area: e;
+        justify-self: stretch;
+        align-self: stretch;
+    }
+    #searchbut {
+        grid-area: f;
+        justify-self: stretch;
+        align-self: stretch;
+    }
+    
+  
+  
+ 
+   
+}
+
+@media (min-width: 577px) and (max-width: 991px){
+    /* #mainid {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    #mainid div {
+        border: 0.5px solid gray;
+        text-align: center;
+    } */
+    .form-group {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 4fr);
+        grid-template-rows: auto auto;   
+        grid-template-areas: 
+        "a c e"
+        "b d f";
+    }
+    #tableval  {
+        grid-area: a;
+    } 
+    #hostval {
+        grid-area: b;
+    }
+    #userval {
+        grid-area: c;
+    }
+    #searchval {
+        grid-area: d;
+    }
+    #clearbut {
+        grid-area: e;
+    }
+    #searchbut {
+        grid-area: f;
+    }
+}
+   
+ 
+@media (max-width: 576px){
+    /* #mainid {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #mainid div {
+        border: 0.5px solid gray;
+        text-align: center;
+    } */
+    .form-group {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, 6fr);
+        grid-template-rows: auto auto auto; 
+        grid-template-areas: 
+        "a b"
+        "c d"
+        "e f";
+    }
+    #tableval  {
+        grid-area: a;
+    } 
+    #hostval {
+        grid-area: b;
+    }
+    #userval {
+        grid-area: c;
+    }
+    #searchval {
+        grid-area: d;
+    }
+    #clearbut {
+        grid-area: e;
+    }
+    #searchbut {
+        grid-area: f;
+    }
+} 
