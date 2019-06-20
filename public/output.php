@@ -1,5 +1,3 @@
-<html>
-<body>
 <?php
 $mysql_table = $_POST['tableval'];
 $host_id = $_POST['hostval'];
@@ -53,5 +51,3 @@ while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
 }
 echo "</table>";
 ?>
-</body>
-</html>
