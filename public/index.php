@@ -1,13 +1,11 @@
 <?php
   session_start();
-//Database Configuration File
 include('../config/config.php');
 error_reporting(0);
 
   if(isset($_POST['login']))
   {
 
-//Genrating random number for salt
 if(@$_SESSION['randnmbr']==""){
    
         $Alpha22=range("A","Z");
@@ -32,13 +30,10 @@ if(@$_SESSION['randnmbr']==""){
 } 
 
 
-    // Getting username/ email and password
     $uname=$_POST['username'];
      $password=hash('sha256',$_POST['password']);
 
-     // Hashing with Random Number
      $saltedpasswrd=hash('sha256',$password.$_SESSION['randnum']);
-    // Fetch stored password  from database on the basis of username/email 
     $sql ="SELECT UserName,UserEmail,LoginPassword FROM userdata WHERE (UserName=:usname || UserEmail=:usname)";
     $query= $dbh -> prepare($sql);
     $query-> bindParam(':usname', $uname, PDO::PARAM_STR);
@@ -48,21 +43,14 @@ if(@$_SESSION['randnmbr']==""){
   {
 foreach ($results as $result) {
  $fetchpassword=$result->LoginPassword;
- // hashing for stored password
    $storedpass= hash('sha256',$fetchpassword.$_SESSION['randnum']);
 }
-//You can configure your cost value according to your server configuration.By Default value is 10.
   $options = [
               'cost' => 12,
               ];
-  // Hashing of the post password
   $hash= password_hash($saltedpasswrd,PASSWORD_DEFAULT, $options);
-  // Verifying Post password againt stored password
    if(password_verify($storedpass,$hash)){
-
-
     $_SESSION['userlogin']=$_POST['username'];
-    // echo "<script type='text/javascript'> document.location = 'welcome.php'; </script>";
     echo "<script type='text/javascript'> document.location = 'home.php'; </script>";
   }
 else {
@@ -100,45 +88,30 @@ else {
           <div class="modal-body">
               <div class="row">
                   <div>
-                  <!-- <div class="col-xs-6"> -->
                       <div class="well">
                           <form id="loginForm" method="post">
                               <div class="form-group">
-                                  <label for="username" class="control-label">Lietotāja vārds / E-pasts</label>
+                                  <label for="username" class="control-label">Username / Email id</label>
                                   <input type="text" class="form-control" id="username" name="username"  required="" title="Please enter you username or Email-id" placeholder="email or username" >
                                   <span class="help-block"></span>
                               </div>
                               <div class="form-group">
-                                  <label for="password" class="control-label">Parole</label>
+                                  <label for="password" class="control-label">Password</label>
                                   <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" required="" title="Please enter your password">
                                   <span class="help-block"></span>
                               </div>
                            
                               <button type="submit" class="btn btn-success btn-block" name="login">Login</button>
                               <button class="btn btn-info btn-block" onclick="window.location.href = 'signup.php';">Sign up</button>
-                              <!-- <p><a href="signup.php" class="btn btn-info btn-block">Sign Up</a></p> -->
-
                           </form>
                       </div>
                   </div>
-                  <!-- <div class="col-xs-6"> --> 
-                      <!-- <p class="lead">Register now for <span class="text-success">FREE</span></p>
-                      <ul class="list-unstyled" style="line-height: 2">
-                          <li><span class="fa fa-check text-success"></span> Lorem ipsum dolor sit amet</li>
-                          <li><span class="fa fa-check text-success"></span>Lorem ipsum dolor sit amet</li>
-                          <li><span class="fa fa-check text-success"></span>Lorem ipsum dolor sit amet</li>
-                          <li><span class="fa fa-check text-success"></span>Lorem ipsum dolor sit amet</li>
-                          <li><span class="fa fa-check text-success"></span> Lorem ipsum dolor sit amet</li>
-
-                      </ul> -->
-                      <!-- <p><a href="signup.php" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
-                  <!-- </div> -->
               </div>
           </div>
       </div>
   </div>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
-</script> -->
+</script>
 </body>
 </html>

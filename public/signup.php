@@ -53,7 +53,7 @@ $error="Username or Email-id already exist. Please try again";
     <meta charset="utf-8">
     <title>L117L3_BR0 | Registration</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <style>
@@ -202,8 +202,8 @@ error:function (){
     </div>
   </fieldset>
 </form>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
-</script> -->
+</script> 
 </body>
 </html>

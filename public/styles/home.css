@@ -1,28 +1,4 @@
-.FizzBuzz {
-    background-color: green;
-}
-.Fizz {
-    background-color: yellow;
-}
-.Buzz {
-    background-color: blue;
-}
-.Number {
-    background-color: white;
-} 
-
 @media (min-width: 992px){
-    /* #mainid {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(10, 1fr);
-    }
-
-    #mainid div {
-        border: 0.5px solid gray;
-        text-align: center;
-    } */
-
     .form-group {
         display: grid;
         width: 100%;
@@ -63,15 +39,6 @@
 }
 
 @media (min-width: 577px) and (max-width: 991px){
-    /* #mainid {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(5, 1fr);
-    }
-    #mainid div {
-        border: 0.5px solid gray;
-        text-align: center;
-    } */
     .form-group {
         display: grid;
         width: 100%;
@@ -103,15 +70,6 @@
    
  
 @media (max-width: 576px){
-    /* #mainid {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(1, 1fr);
-    }
-    #mainid div {
-        border: 0.5px solid gray;
-        text-align: center;
-    } */
     .form-group {
         display: grid;
         width: 100%;
