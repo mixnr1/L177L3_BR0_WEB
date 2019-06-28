@@ -30,8 +30,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $query .= " 1=1;";
     }
+    
+    $countq="";
+    $countq .= "SELECT count(*) FROM " . $mysql_table;
+    if (strlen($host_id)>0) {
+        $countq .= " WHERE host_id='". $host_id . "' AND";
+    } else {
+        $countq .=" WHERE ";
+    }
+    if (strlen($user_id)>0) {
+        $countq .= " user_id='". $user_id . "' AND";
+    }
+    if (strlen($searchterm)>0) {
 
-    require_once("../config/config.php");
+        $countq .= $all_tables[$mysql_table];
+    } else {
+        $countq .= " 1=1;";
+    }
+    $csth = $dbh->prepare($countq);
+    if(!$csth->execute()) {
+	    die('Error');
+    }
+    while($row = $csth->fetch(PDO::FETCH_ASSOC)) {
+        foreach($row as $key=>$value) {
+            echo 'Search results for '. $mysql_table . '. Hit count: '. $value . '<br>';
+        }
+    }
+
     $tableheader = false;
     $sth = $dbh->prepare($query);
     if(!$sth->execute()) {
