@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     "downloads" => " (link LIKE '%".$some."%' OR current_path LIKE '%".$some."%'); ",
                     "forms" => " (name LIKE '%".$some."%' OR value LIKE '%".$some."%'); ",
                     "history" => " (protocol LIKE '%".$some."%' OR domain LIKE '%".$some."%' OR link LIKE '%".$some."%'); ",
+                    "translate" => " (text LIKE '%".$some."%'); ",
                     "search" => " (search LIKE '%".$some."%'); "];
     $query="";
     $query .= "SELECT * FROM " . $mysql_table;

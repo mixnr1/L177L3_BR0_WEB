@@ -40,6 +40,7 @@ while($row=$query->fetch(PDO::FETCH_ASSOC)){
                               <option value="forms">forms</option>
                               <option value="history">history</option>
                               <option value="search">search</option>
+                              <option value="translate">translate</option>
                             </select>
                         </div>
                         <div>
